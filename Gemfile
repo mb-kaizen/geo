@@ -64,3 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'd3-rails', '~> 4.1'
 gem 'mapbox-sdk'
+
+gem 'bootstrap'
