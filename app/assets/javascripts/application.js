@@ -25,7 +25,7 @@ $(document).ready( function(){
 
   mapboxgl.accessToken = 'pk.eyJ1IjoibWItbWFwYm94IiwiYSI6ImNrMzE0dWlkNTA1aHgzbWxidGIycTFyYnEifQ.tjVyoRPG6zh-KUfGSKrimQ';
   var map = new mapboxgl.Map({
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/mapbox/dark-v10',
     center: [-74.0066, 40.7135],
     zoom: 15.5,
     pitch: 45,
@@ -199,108 +199,108 @@ var start_story = {
 
 
 // Helper Functions
-function timeFormatter(t) {
-  var dt;
-  if(t == 0) dt = '12 AM';
-  if(t > 0 && t < 12) dt = t + ' AM';
-  if(t == 12) dt = '12 PM';
-  if(t > 12) dt = (t-12) + ' PM';
-  return dt;
-}
+// function timeFormatter(t) {
+//   var dt;
+//   if(t == 0) dt = '12 AM';
+//   if(t > 0 && t < 12) dt = t + ' AM';
+//   if(t == 12) dt = '12 PM';
+//   if(t > 12) dt = (t-12) + ' PM';
+//   return dt;
+// }
 
-function dayFormatterShort(d) {
-  var dt;
-  if(d == 0) dt = 'MON';
-  if(d == 1) dt = 'TUE';
-  if(d == 2) dt = 'WED';
-  if(d == 3) dt = 'THU';
-  if(d == 4) dt = 'FRI';
-  if(d == 5) dt = 'SAT';
-  if(d == 6) dt = 'SUN';
-  return dt;
-}
+// function dayFormatterShort(d) {
+//   var dt;
+//   if(d == 0) dt = 'MON';
+//   if(d == 1) dt = 'TUE';
+//   if(d == 2) dt = 'WED';
+//   if(d == 3) dt = 'THU';
+//   if(d == 4) dt = 'FRI';
+//   if(d == 5) dt = 'SAT';
+//   if(d == 6) dt = 'SUN';
+//   return dt;
+// }
 
 
 // About Module Callbacks
-d3.select("#about-map-button").on("click", function() {
-  d3.select("#about").style("display", "none");});
+// d3.select("#about-map-button").on("click", function() {
+//   d3.select("#about").style("display", "none");});
 
-d3.select("#about-close").on("click", function() {
-  d3.select("#about").style("display", "none");});
+// d3.select("#about-close").on("click", function() {
+//   d3.select("#about").style("display", "none");});
 
-d3.select("#about").on("click", function() {
-  d3.select("#about").style("display", "none");});
+// d3.select("#about").on("click", function() {
+//   d3.select("#about").style("display", "none");});
 
-d3.select("#about-link").on("click", function() {
-  d3.select("#about").style("display", "block");
-});
+// d3.select("#about-link").on("click", function() {
+//   d3.select("#about").style("display", "block");
+// });
 
 
-// Legend Display callbacks
-d3.select("#legend-mobile").on("click", function() {
+// // Legend Display callbacks
+// d3.select("#legend-mobile").on("click", function() {
   
-  if (currentMode == "story" || currentMode == "viz") {
-    if (d3.select("#legend").style("display") == "none")
-      d3.select("#legend").style("display", "block")
-    else
-      d3.select("#legend").style("display", "none")
-  }
+//   if (currentMode == "story" || currentMode == "viz") {
+//     if (d3.select("#legend").style("display") == "none")
+//       d3.select("#legend").style("display", "block")
+//     else
+//       d3.select("#legend").style("display", "none")
+//   }
 
-  if (currentMode == "stats") {
-    if (d3.select("#statslegend").style("display") == "none")
-      d3.select("#statslegend").style("display", "block")
-    else
-      d3.select("#statslegend").style("display", "none")
-  }
-});
+//   if (currentMode == "stats") {
+//     if (d3.select("#statslegend").style("display") == "none")
+//       d3.select("#statslegend").style("display", "block")
+//     else
+//       d3.select("#statslegend").style("display", "none")
+//   }
+// });
 
 
 // Build sliders and set callbacks.
 
-var slideTimeCallback = function(evt, value) {
-                                    stime = value;
+// var slideTimeCallback = function(evt, value) {
+//                                     stime = value;
                                     
-                                    d3.select("#handle-one-t")
-                                       .html(timeFormatter(Math.round(value)));
+//                                     d3.select("#handle-one-t")
+//                                        .html(timeFormatter(Math.round(value)));
                                     
-                                    if(!sliding) {
-                                      sliding = true;
-                                      interval = setInterval(function () {
-                                                              changeTime({day: sday, time: stime});
-                                                              clearInterval(interval);
-                                                              sliding = false;
-                                                             }, 500);
-                                    } 
-                                  };
+//                                     if(!sliding) {
+//                                       sliding = true;
+//                                       interval = setInterval(function () {
+//                                                               changeTime({day: sday, time: stime});
+//                                                               clearInterval(interval);
+//                                                               sliding = false;
+//                                                              }, 500);
+//                                     } 
+//                                   };
 
-var slideendTimeCallback = function(evt, value) {
-                                      sliding = false;
-                                      clearInterval(interval);
-                                      changeTime({day: sday, time: stime});
-                                     };
+// var slideendTimeCallback = function(evt, value) {
+//                                       sliding = false;
+//                                       clearInterval(interval);
+//                                       changeTime({day: sday, time: stime});
+//                                      };
 
-var slideDayCallback = function(evt, value) {
-                                    sday = value;
+// var slideDayCallback = function(evt, value) {
+//                                     sday = value;
                                     
-                                    d3.select("#handle-one-b")
-                                      .html(dayFormatterShort(Math.round(value)));
+//                                     d3.select("#handle-one-b")
+//                                       .html(dayFormatterShort(Math.round(value)));
                                     
-                                    if(!sliding) {
-                                      sliding = true;
-                                      interval = setInterval(function () {
-                                                              changeTime({day: sday, time: stime});
-                                                              clearInterval(interval);
-                                                              sliding = false;
-                                                             }, 500);
+//                                     if(!sliding) {
+//                                       sliding = true;
+//                                       interval = setInterval(function () {
+//                                                               changeTime({day: sday, time: stime});
+//                                                               clearInterval(interval);
+//                                                               sliding = false;
+//                                                              }, 500);
 
-                                    }
-                                  };
+//                                     }
+//                                   };
 
-var slideendDayCallback = function(evt, value) {
-                                      sliding = false;
-                                      clearInterval(interval);
-                                      changeTime({day: sday, time: stime});
-                                     };
+// var slideendDayCallback = function(evt, value) {
+//                                       sliding = false;
+//                                       clearInterval(interval);
+//                                       changeTime({day: sday, time: stime});
+//                                      };
 
 // var sliderTime = d3.slider().min(0).max(23).step(1).id('t')
 //                      .on("slide", slideTimeCallback)
@@ -395,123 +395,123 @@ function changeTime(settings) {
 // Change the map mode.
 function changeMode(settings) {
 
-  // Control Legends.
-  d3.select("#legend-content").style("display", (settings.id == "viz" || settings.id == "story") ? "block": "none");
-  d3.select("#cbs-content").style("display", (settings.id == "viz" || settings.id == "story") ? "block": "none");
-  d3.select("#statslegend-content").style("display", (settings.id == "viz" || settings.id == "story") ? "none": "block");
+  // // Control Legends.
+  // d3.select("#legend-content").style("display", (settings.id == "viz" || settings.id == "story") ? "block": "none");
+  // d3.select("#cbs-content").style("display", (settings.id == "viz" || settings.id == "story") ? "block": "none");
+  // d3.select("#statslegend-content").style("display", (settings.id == "viz" || settings.id == "story") ? "none": "block");
 
   // Control Sliders.
-  if (media == "mobile" && settings.id == "story")
-    d3.select("#controls").style("display", "none");
-  else
-    d3.select("#controls").style("display", "block");
+  // if (media == "mobile" && settings.id == "story")
+  //   d3.select("#controls").style("display", "none");
+  // else
+  //   d3.select("#controls").style("display", "block");
 
-  if (media == "mobile" && settings.id == "stats")
-    d3.select("#controls").style("bottom", "140px");
-  else
-    d3.select("#controls").style("bottom", "30px");
+  // if (media == "mobile" && settings.id == "stats")
+  //   d3.select("#controls").style("bottom", "140px");
+  // else
+  //   d3.select("#controls").style("bottom", "30px");
 
-  // Header button attrs.
-  vizControl.attr("class", (settings.id == "viz") ? "mode-selected" : "mode");
-  statsControl.attr("class", (settings.id == "stats") ? "mode-selected" : "mode");
-  storyControl.attr("class", (settings.id == "story") ? "mode-selected" : "mode");
+  // // Header button attrs.
+  // vizControl.attr("class", (settings.id == "viz") ? "mode-selected" : "mode");
+  // statsControl.attr("class", (settings.id == "stats") ? "mode-selected" : "mode");
+  // storyControl.attr("class", (settings.id == "story") ? "mode-selected" : "mode");
 
   // Change the map to STATS mode.
-  if (settings.id == "stats") {
+  // if (settings.id == "stats") {
     
-    // Change map view settings.
-    if (media == "full") {
-      map.flyTo(start_stats);
-    } else {
-      map.flyTo(start_stats_mobile);
-    };
+  //   // Change map view settings.
+  //   if (media == "full") {
+  //     map.flyTo(start_stats);
+  //   } else {
+  //     map.flyTo(start_stats_mobile);
+  //   };
 
-    // Turn on STATS overlays and turn of VIZ overlays.
-    map.setLayoutProperty("stats-dimmed", "visibility", "visible");
-    map.setLayoutProperty("stats-highlighted", "visibility", "visible");
-    map.setLayoutProperty("viz", "visibility", "none");
+  //   // Turn on STATS overlays and turn of VIZ overlays.
+  //   map.setLayoutProperty("stats-dimmed", "visibility", "visible");
+  //   map.setLayoutProperty("stats-highlighted", "visibility", "visible");
+  //   map.setLayoutProperty("viz", "visibility", "none");
 
-    // Turn on the info panel.
-    info.style("display", "block");
+  //   // Turn on the info panel.
+  //   info.style("display", "block");
 
-    // Turn off Story panel.
-    story.style("display", "none");
+  //   // Turn off Story panel.
+  //   story.style("display", "none");
 
-    // Set the Info Panel to the default.
-    updateInfo(infoGraph, "MN", day, time);
-  }
+  //   // Set the Info Panel to the default.
+  //   updateInfo(infoGraph, "MN", day, time);
+  // }
 
   // Change the map to VIZ mode.
-  if (settings.id == "viz") {
+  // if (settings.id == "viz") {
     
-    // Change the map view settings.
-    if (media == "full") map.flyTo(start_viz);
-    else map.flyTo(start_viz_mobile);
+  //   // Change the map view settings.
+  //   if (media == "full") map.flyTo(start_viz);
+  //   else map.flyTo(start_viz_mobile);
 
-    // Reset filters.
-    d3.select("#cb1").property("checked", true);
-    d3.select("#cb2").property("checked", true);
-    d3.select("#cb3").property("checked", true);
-    d3.select("#cb4").property("checked", true);
-    d3.select("#cb5").property("checked", true);
-    d3.select("#cb6").property("checked", true);
-    d3.select("#cb7").property("checked", true);
-    d3.select("#cb8").property("checked", true);
-    d3.select("#cb9").property("checked", true);
-    d3.select("#cb10").property("checked", true);
-    d3.select("#cb11").property("checked", true);
-    d3.select("#cb12").property("checked", true);
+  //   // Reset filters.
+  //   d3.select("#cb1").property("checked", true);
+  //   d3.select("#cb2").property("checked", true);
+  //   d3.select("#cb3").property("checked", true);
+  //   d3.select("#cb4").property("checked", true);
+  //   d3.select("#cb5").property("checked", true);
+  //   d3.select("#cb6").property("checked", true);
+  //   d3.select("#cb7").property("checked", true);
+  //   d3.select("#cb8").property("checked", true);
+  //   d3.select("#cb9").property("checked", true);
+  //   d3.select("#cb10").property("checked", true);
+  //   d3.select("#cb11").property("checked", true);
+  //   d3.select("#cb12").property("checked", true);
 
-    // Update map.
-    map.setFilter('viz', ['in', 'cd', 101, 102, 103, 104, 105, 106,
-                          107, 108, 109, 110, 111, 112]);
+  //   // Update map.
+  //   map.setFilter('viz', ['in', 'cd', 101, 102, 103, 104, 105, 106,
+  //                         107, 108, 109, 110, 111, 112]);
 
-    // Reset the time.
-    changeTime({day: currentDay, time: currentHour});
-    slideTimeCallback(d3.event, currentHour);
-    slideendTimeCallback(d3.event, currentHour);
-    sliderTime.value(currentHour);
-    slideDayCallback(d3.event, currentDay);
-    slideendDayCallback(d3.event, currentDay);
-    sliderDay.value(currentDay);
+  //   // Reset the time.
+  //   changeTime({day: currentDay, time: currentHour});
+  //   slideTimeCallback(d3.event, currentHour);
+  //   slideendTimeCallback(d3.event, currentHour);
+  //   sliderTime.value(currentHour);
+  //   slideDayCallback(d3.event, currentDay);
+  //   slideendDayCallback(d3.event, currentDay);
+  //   sliderDay.value(currentDay);
 
 
-    // Turn on VIZ overlays and turn off STATS overlays.
-    map.setLayoutProperty("viz", "visibility", "visible");
-    map.setLayoutProperty("stats-dimmed", "visibility", "none");
-    map.setLayoutProperty("stats-highlighted", "visibility", "none");
+  //   // Turn on VIZ overlays and turn off STATS overlays.
+  //   map.setLayoutProperty("viz", "visibility", "visible");
+  //   map.setLayoutProperty("stats-dimmed", "visibility", "none");
+  //   map.setLayoutProperty("stats-highlighted", "visibility", "none");
 
-    // Turn off info panel.
-    info.style("display", "none");
+  //   // Turn off info panel.
+  //   info.style("display", "none");
 
-    // Turn off Story panel.
-    story.style("display", "none");
+  //   // Turn off Story panel.
+  //   story.style("display", "none");
 
-  }
+  // }
 
   // Change the map to STORY mode.
   if (settings.id == "story") {
 
     // Change map view settings.
-    map.flyTo(start_story);
+    // map.flyTo(start_story);
 
     // Turn on VIZ overlays and turn off STATS overlays.
     map.setLayoutProperty("viz", "visibility", "visible");
     map.setLayoutProperty("stats-dimmed", "visibility", "none");
     map.setLayoutProperty("stats-highlighted", "visibility", "none");
 
-    // Turn on the story panel.
-    story.style("display", "block");
+    // // Turn on the story panel.
+    // story.style("display", "block");
 
-    // Turn off info panel.
-    info.style("display", "none");
+    // // Turn off info panel.
+    // info.style("display", "none");
 
-    // Start at the beginning.
-    pageNum = 1;
-    pageNumbers.text(pageNum + " of " + stories.length);
-    backButton.style( "visibility", (pageNum == 1) ? "hidden" : "visible" );
-    forwardButton.style( "visibility", (pageNum == stories.length) ? "hidden" : "visible" );
-    updateStory(stories[pageNum-1]);
+    // // Start at the beginning.
+    // pageNum = 1;
+    // pageNumbers.text(pageNum + " of " + stories.length);
+    // backButton.style( "visibility", (pageNum == 1) ? "hidden" : "visible" );
+    // forwardButton.style( "visibility", (pageNum == stories.length) ? "hidden" : "visible" );
+    // updateStory(stories[pageNum-1]);
   }
 
   currentMode = settings.id;
