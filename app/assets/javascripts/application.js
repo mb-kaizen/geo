@@ -310,87 +310,87 @@ var start_story = {
 //                      .on("slide", slideDayCallback)
 //                      .on("slideend", slideendDayCallback);
 
-function getSliders() {
+// function getSliders() {
 
-  // TIME
-  d3.select('#slider-t').call(sliderTime);
+//   // TIME
+//   d3.select('#slider-t').call(sliderTime);
 
-  // DAY
-  d3.select('#slider-b').call(sliderDay);
+//   // DAY
+//   d3.select('#slider-b').call(sliderDay);
 
-  // Init Slider text.
-  d3.select("#handle-one-t").text('12 AM');
-  d3.select("#handle-one-b").text('MON');
-}
+//   // Init Slider text.
+//   d3.select("#handle-one-t").text('12 AM');
+//   d3.select("#handle-one-b").text('MON');
+// }
 
 // Change data by time.
-function changeTime(settings) {
+// function changeTime(settings) {
 
-  time = (settings.time) ? settings.time : 0;
-  day = (settings.day) ? settings.day : 0;
-  daytime = (day*24 + time).toString();
-  daytime_stats = (color_total) ? daytime + "p" : daytime + "d";
+//   time = (settings.time) ? settings.time : 0;
+//   day = (settings.day) ? settings.day : 0;
+//   daytime = (day*24 + time).toString();
+//   daytime_stats = (color_total) ? daytime + "p" : daytime + "d";
 
-  if(map) {
+//   if(map) {
 
-    // VIZ
-    map.setPaintProperty("viz",
-                         "fill-extrusion-height",
-                         ["*", ["get", daytime], 5]);
+//     // VIZ
+//     map.setPaintProperty("viz",
+//                          "fill-extrusion-height",
+//                          ["*", ["get", daytime], 5]);
 
-    map.setPaintProperty("viz",
-                          "fill-extrusion-color",
-                          {"base": 1,
-                           "type": "interval",
-                           "property": daytime,
-                           "stops": [[0, "#fff7ec"],
-                                     [10, "#fdd49e"],
-                                     [20, "#fee8c8"],
-                                     [40, "#fdbb84"],
-                                     [80, "#fc8d59"],
-                                     [160, "#ef6548"],
-                                     [320, "#d7301f"],
-                                     [640, "#b30000"],
-                                     [1280, "#7f0000"]],
-                           "default": "#800026"});
+//     map.setPaintProperty("viz",
+//                           "fill-extrusion-color",
+//                           {"base": 1,
+//                            "type": "interval",
+//                            "property": daytime,
+//                            "stops": [[0, "#fff7ec"],
+//                                      [10, "#fdd49e"],
+//                                      [20, "#fee8c8"],
+//                                      [40, "#fdbb84"],
+//                                      [80, "#fc8d59"],
+//                                      [160, "#ef6548"],
+//                                      [320, "#d7301f"],
+//                                      [640, "#b30000"],
+//                                      [1280, "#7f0000"]],
+//                            "default": "#800026"});
 
-    // STATS
-    map.setPaintProperty("stats-highlighted",
-                         "fill-color",
-                         {"base": 1,
-                          "type": "interval",
-                          "property": daytime_stats,
-                          "stops": [[-4000, "#d73027"],
-                                    [-2000, "#f46d43"],
-                                    [-1000, "#fdae61"],
-                                    [-500, "#fee08b"],
-                                    [500, "#ffffbf"],
-                                    [2000, "#d9ef8b"],
-                                    [4000, "#a6d96a"],
-                                    [12000, "#66bd63"],
-                                    [32000, "#1a9850"]]});
+//     // STATS
+//     map.setPaintProperty("stats-highlighted",
+//                          "fill-color",
+//                          {"base": 1,
+//                           "type": "interval",
+//                           "property": daytime_stats,
+//                           "stops": [[-4000, "#d73027"],
+//                                     [-2000, "#f46d43"],
+//                                     [-1000, "#fdae61"],
+//                                     [-500, "#fee08b"],
+//                                     [500, "#ffffbf"],
+//                                     [2000, "#d9ef8b"],
+//                                     [4000, "#a6d96a"],
+//                                     [12000, "#66bd63"],
+//                                     [32000, "#1a9850"]]});
 
-    map.setPaintProperty("stats-dimmed",
-                         "fill-color",
-                          {"base": 1,
-                           "type": "interval",
-                           "property": daytime_stats,
-                           "stops": [[-4000, "#d73027"],
-                                     [-2000, "#f46d43"],
-                                     [-1000, "#fdae61"],
-                                     [-500, "#fee08b"],
-                                     [500, "#ffffbf"],
-                                     [2000, "#d9ef8b"],
-                                     [4000, "#a6d96a"],
-                                     [12000, "#66bd63"],
-                                     [32000, "#1a9850"]]});
+//     map.setPaintProperty("stats-dimmed",
+//                          "fill-color",
+//                           {"base": 1,
+//                            "type": "interval",
+//                            "property": daytime_stats,
+//                            "stops": [[-4000, "#d73027"],
+//                                      [-2000, "#f46d43"],
+//                                      [-1000, "#fdae61"],
+//                                      [-500, "#fee08b"],
+//                                      [500, "#ffffbf"],
+//                                      [2000, "#d9ef8b"],
+//                                      [4000, "#a6d96a"],
+//                                      [12000, "#66bd63"],
+//                                      [32000, "#1a9850"]]});
 
-    if (nta_clicked) 
-      updateInfo(infoGraph, neighborhood, day, time);
-    else
-      updateInfo(infoGraph, "MN", day, time);
-  }
-}
+//     if (nta_clicked) 
+//       updateInfo(infoGraph, neighborhood, day, time);
+//     else
+//       updateInfo(infoGraph, "MN", day, time);
+//   }
+// }
 
 // Change the map mode.
 function changeMode(settings) {
@@ -490,29 +490,29 @@ function changeMode(settings) {
   // }
 
   // Change the map to STORY mode.
-  if (settings.id == "story") {
+  // if (settings.id == "story") {
 
-    // Change map view settings.
-    // map.flyTo(start_story);
+  //   // Change map view settings.
+  //   // map.flyTo(start_story);
 
-    // Turn on VIZ overlays and turn off STATS overlays.
-    map.setLayoutProperty("viz", "visibility", "visible");
-    map.setLayoutProperty("stats-dimmed", "visibility", "none");
-    map.setLayoutProperty("stats-highlighted", "visibility", "none");
+  //   // Turn on VIZ overlays and turn off STATS overlays.
+  //   map.setLayoutProperty("viz", "visibility", "visible");
+  //   map.setLayoutProperty("stats-dimmed", "visibility", "none");
+  //   map.setLayoutProperty("stats-highlighted", "visibility", "none");
 
-    // // Turn on the story panel.
-    // story.style("display", "block");
+  //   // // Turn on the story panel.
+  //   // story.style("display", "block");
 
-    // // Turn off info panel.
-    // info.style("display", "none");
+  //   // // Turn off info panel.
+  //   // info.style("display", "none");
 
-    // // Start at the beginning.
-    // pageNum = 1;
-    // pageNumbers.text(pageNum + " of " + stories.length);
-    // backButton.style( "visibility", (pageNum == 1) ? "hidden" : "visible" );
-    // forwardButton.style( "visibility", (pageNum == stories.length) ? "hidden" : "visible" );
-    // updateStory(stories[pageNum-1]);
-  }
+  //   // // Start at the beginning.
+  //   // pageNum = 1;
+  //   // pageNumbers.text(pageNum + " of " + stories.length);
+  //   // backButton.style( "visibility", (pageNum == 1) ? "hidden" : "visible" );
+  //   // forwardButton.style( "visibility", (pageNum == stories.length) ? "hidden" : "visible" );
+  //   // updateStory(stories[pageNum-1]);
+  // }
 
   currentMode = settings.id;
 }
@@ -625,102 +625,102 @@ map.on("load", function(e) {
   storyControl.on('click', function () {changeMode({id: 'story'});});
 
   // Callback for STATS overlay mouse movement (on).
-  map.on('mousemove', 'stats-dimmed', function(e) {
+  // map.on('mousemove', 'stats-dimmed', function(e) {
     
-    // Interactive Cursor.
-    map.getCanvas().style.cursor = 'pointer';
+  //   // Interactive Cursor.
+  //   map.getCanvas().style.cursor = 'pointer';
 
-    // If there is no map focus...
-    if (!nta_clicked) {
+  //   // If there is no map focus...
+  //   if (!nta_clicked) {
       
-      // Single out the first found feature.
-      var feature = e.features[0];
+  //     // Single out the first found feature.
+  //     var feature = e.features[0];
 
-      // Get the feature's neighborhood (NTA).
-      neighborhood = feature.properties.NTACode;
+  //     // Get the feature's neighborhood (NTA).
+  //     neighborhood = feature.properties.NTACode;
 
-      // Filter map overlay for the NTA.
-      map.setFilter('stats-highlighted', ['in', 'NTACode', neighborhood]);
+  //     // Filter map overlay for the NTA.
+  //     map.setFilter('stats-highlighted', ['in', 'NTACode', neighborhood]);
 
-      // Update the info panel.
-      updateInfo(infoGraph, neighborhood, day, time);
-    }
-  });
+  //     // Update the info panel.
+  //     updateInfo(infoGraph, neighborhood, day, time);
+  //   }
+  // });
 
   // Callback for STATS overlay mouse movement (leave).
-  map.on('mouseleave', 'stats-dimmed', function(e) {
+  // map.on('mouseleave', 'stats-dimmed', function(e) {
 
-    // Change the cursor style again.
-    map.getCanvas().style.cursor = '';
+  //   // Change the cursor style again.
+  //   map.getCanvas().style.cursor = '';
 
-    // If not map focus...
-    if (!nta_clicked) {
+  //   // If not map focus...
+  //   if (!nta_clicked) {
       
-      // Clear Filters.
-      map.setFilter('stats-highlighted', ['in', 'NTACode', '']);
-      map.setFilter('stats-dimmed', null);
+  //     // Clear Filters.
+  //     map.setFilter('stats-highlighted', ['in', 'NTACode', '']);
+  //     map.setFilter('stats-dimmed', null);
 
-      // Update info panel with Manhattan data.
-      updateInfo(infoGraph, "MN", day, time);
-    }
-  });
+  //     // Update info panel with Manhattan data.
+  //     updateInfo(infoGraph, "MN", day, time);
+  //   }
+  // });
 
   // Callback for STATS overlay mouse click.
-  map.on('click', function(e) {
+  // map.on('click', function(e) {
 
-    if (currentMode == "stats") {
-      // Expand map query bounding box.
-      var bbox = [[(e.point.x-5), (e.point.y-5)], 
-                  [(e.point.x+5), (e.point.y+5)]];
+  //   if (currentMode == "stats") {
+  //     // Expand map query bounding box.
+  //     var bbox = [[(e.point.x-5), (e.point.y-5)], 
+  //                 [(e.point.x+5), (e.point.y+5)]];
 
-      // Search for feature in both highlighted and dimmed layers.
-      var features = map.queryRenderedFeatures(bbox,
-                                               {layers: ['stats-highlighted',
-                                                         'stats-dimmed']});
+  //     // Search for feature in both highlighted and dimmed layers.
+  //     var features = map.queryRenderedFeatures(bbox,
+  //                                              {layers: ['stats-highlighted',
+  //                                                        'stats-dimmed']});
 
-      // If feature found...
-      if (features.length) {
+  //     // If feature found...
+  //     if (features.length) {
         
-        // Map overlay focus.
-        nta_clicked = true;
+  //       // Map overlay focus.
+  //       nta_clicked = true;
 
-        // Turn hightlighted map feature.
-        neighborhood = features[0].properties.NTACode;
-        map.setFilter('stats-highlighted', ['in', 'NTACode', neighborhood]);
+  //       // Turn hightlighted map feature.
+  //       neighborhood = features[0].properties.NTACode;
+  //       map.setFilter('stats-highlighted', ['in', 'NTACode', neighborhood]);
 
-        // Center map view on feature.
-        map.flyTo({
-          center: e.lngLat,
-          zoom: 12.5,
-          bearing: 28.5,
-          pitch: 0.00
-        });
+  //       // Center map view on feature.
+  //       map.flyTo({
+  //         center: e.lngLat,
+  //         zoom: 12.5,
+  //         bearing: 28.5,
+  //         pitch: 0.00
+  //       });
 
-        // Update panel.
-        updateInfo(infoGraph, neighborhood, day, time);
+  //       // Update panel.
+  //       updateInfo(infoGraph, neighborhood, day, time);
 
 
-      } else { // No feature found.
+  //     } else { // No feature found.
         
-        // Clear focus, clear feature.
-        nta_clicked = false;
-        map.setFilter('stats-highlighted', ['in', 'NTACode', '']);
+  //       // Clear focus, clear feature.
+  //       nta_clicked = false;
+  //       map.setFilter('stats-highlighted', ['in', 'NTACode', '']);
 
-        // Re-center map.
-        if (media == "full")
-          map.flyTo(start_stats);
-        else
-          map.flyTo(start_stats_mobile);
+  //       // Re-center map.
+  //       if (media == "full")
+  //         map.flyTo(start_stats);
+  //       else
+  //         map.flyTo(start_stats_mobile);
 
-        // Update info panel with Manhattan data.
-        updateInfo(infoGraph, "MN", day, time);
-      }
-    }
-  });
+  //       // Update info panel with Manhattan data.
+  //       updateInfo(infoGraph, "MN", day, time);
+  //     }
+  //   }
+  // });
 
-  // Initialize app mode.
-  if (media == "full") changeMode({id: 'story'});
-  if (media == "mobile") changeMode({id: 'viz'});
+  // // Initialize app mode.
+  // if (media == "full") changeMode({id: 'story'});
+  // if (media == "mobile") changeMode({id: 'viz'});
 
   // Initialize Story to page one.
   //pageNumbers.text(pageNum + " of " + stories.length);
