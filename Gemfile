@@ -65,5 +65,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'd3-rails'
 gem 'mapbox-rails'
 
-gem 'bootstrap'
+# gem 'bootstrap'
 gem 'jquery-rails'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'

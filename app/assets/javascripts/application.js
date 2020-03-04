@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require d3
 //= require mapbox.js
+//= require materialize
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
