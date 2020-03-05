@@ -16,16 +16,121 @@
   </head>
 
   <body>
-    <div id='map' style='width: 800px; height: 600px;'></div>
-    
-    <meta charset='utf-8' />
-    <title>Display buildings in 3D</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    
-    <style>
-      body { margin:0; padding:0; }
-      #map { position:absolute; top:0; bottom:0; width:100%; }
-    </style>
+    <nav class="blue darken-2">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">Madmin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section: Stats -->
+  <section class="section">
+    <div class="row">
+    <div class="col s12 m6 l6">
+      <div class="card-panel center">
+        <i class="material-icons medium">attach_money</i>
+        <h5>Average Income</h5>
+        <h3 class="count">$74,000</h3>
+        <div class="progress grey lighten-1">
+          <div class="determinate blue lighten-1" style="width: 10%;"></div>
+        </div>
+      </div>
+    </div>
+      <div class="col s12 m6 l6">
+        <div class="card-panel blue lighten-1 white-text center">
+          <i class="material-icons medium">accessibility</i>
+          <h5>Population</h5>
+          <h3 class="count">1,629,000</h3>
+          <div class="progress grey lighten-1">
+            <div class="determinate white" style="width: 40%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section: Visitors -->
+  <section class="section section-visitors blue lighten-4">
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card-panel">
+          <div id="chartContainer" style="height: 400px; width: 100%;">
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l6">
+      <div class="card-panel">
+        <div id='map' style="height: 400px; width: 100%"></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Preloader -->
+  <div class="loader preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="js/chart.js"></script>
+
+  <script>
+    // Hide Sections
+    $('.section').hide();
+
+    setTimeout(function () {
+      $(document).ready(function () {
+        // Show sections
+        $('.section').fadeIn();
+
+        // Hide preloader
+        $('.loader').fadeOut();
+
+        //Init Side nav
+        $('.button-collapse').sideNav();
+
+        // Counter
+        $('.count').each(function () {
+          $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+          }, {
+              duration: 1000,
+              easing: 'swing',
+              step: function (now) {
+                $(this).text(Math.ceil(now));
+              }
+            });
+        });
+
+        // Comments - Approve & Deny
+        $('.approve').click(function (e) {
+          Materialize.toast('Comment Approved', 3000);
+          e.preventDefault();
+        });
+        $('.deny').click(function (e) {
+          Materialize.toast('Comment Denied', 3000);
+          e.preventDefault();
+        });
+
+      });
+    }, 1000);
+  </script>
 
     <%= yield %>
 
