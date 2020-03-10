@@ -16,28 +16,28 @@ window.onload = function() {
       {
         type: "line",
         dataPoints: [
-          { y: 72000 },
-          { y: 73000 },
+          { y: 62000 },
+          { y: 63000 },
           {
-            y: 77000,
+            y: 71000,
             indexLabel: "highest",
             markerColor: "red",
             markerType: "triangle"
           },
-          { y: 76000 },
-          { y: 72000 },
-          { y: 75000 },
-          { y: 73000 },
-          { y: 74000 },
+          { y: 69000 },
+          { y: 62000 },
+          { y: 65000 },
+          { y: 63000 },
+          { y: 64000 },
           {
-            y: 71000,
+            y: 61000,
             indexLabel: "lowest",
             markerColor: "DarkSlateGrey",
             markerType: "cross"
           },
-          { y: 73000 },
-          { y: 75000 },
-          { y: 76000 }
+          { y: 63000 },
+          { y: 65000 },
+          { y: 68000 }
         ]
       }
     ]
