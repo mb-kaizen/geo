@@ -1,4 +1,4 @@
-A simple Rails app built to experiment with Mapbox, Materialize, and Chart.js. 
+An experiment with Mapbox, Materialize, and Chart.js. 
 
 Can be found here:
 https://sleepy-badlands-62511.herokuapp.com/
