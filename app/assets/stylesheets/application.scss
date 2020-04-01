@@ -27,3 +27,7 @@ $secondary-color: color("yellow", "base") !default;
   top: 40%;
   left: 47%;
 }
+
+.mapboxgl-canvas {
+	color: red;
+}

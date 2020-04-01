@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require d3
 //= require mapbox.js
 //= require materialize
@@ -38,6 +38,7 @@ $(document).ready(function() {
   // The 'building' layer in the mapbox-streets vector source contains building-height
   // data from OpenStreetMap.
   map.on("load", function() {
+    map.resize(); // Fizes mapbox bug where displays at default 300px
     // Insert the layer beneath any symbol layer.
     var layers = map.getStyle().layers;
 
