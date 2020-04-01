@@ -1,24 +1,8 @@
-# README
+A simple Rails app built to experiment with Mapbox, Materialize, and Chart.js. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Can be found here:
+https://sleepy-badlands-62511.herokuapp.com/
 
-Things you may want to cover:
+Deployed on a free server on Heroku so, if visiting, please give it a little time to spin up. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Mapbox data visualization credit to https://github.com/citrusvanilla/manhattanpopulationexplorer/
